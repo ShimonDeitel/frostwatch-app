@@ -1,0 +1,75 @@
+name: Frostwatch
+options:
+  bundleIdPrefix: com.shimondeitel.frostwatch
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: "W7Q885Q59C"
+    CODE_SIGN_STYLE: Automatic
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+targets:
+  Frostwatch:
+    type: application
+    platform: iOS
+    sources:
+      - path: Frostwatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.frostwatch
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: Frostwatch/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: "YES"
+        GENERATE_INFOPLIST_FILE: "NO"
+  FrostwatchTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: FrostwatchTests
+      - path: Frostwatch.storekit
+    dependencies:
+      - target: Frostwatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.frostwatch.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+  FrostwatchUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: FrostwatchUITests
+    dependencies:
+      - target: Frostwatch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.frostwatch.uitests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  Frostwatch:
+    build:
+      targets:
+        Frostwatch: all
+        FrostwatchTests: [test]
+        FrostwatchUITests: [test]
+    run:
+      config: Debug
+      storeKitConfiguration: Frostwatch.storekit
+    test:
+      config: Debug
+      storeKitConfiguration: Frostwatch.storekit
+      targets:
+        - FrostwatchTests
+        - FrostwatchUITests
+    archive:
+      config: Release

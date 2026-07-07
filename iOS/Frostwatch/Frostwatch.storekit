@@ -1,0 +1,40 @@
+{
+  "identifier": "0",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {},
+  "subscriptionGroups": [
+    {
+      "id": "1",
+      "localizations": [],
+      "name": "Frostwatch Pro",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "1.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "sub1",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Unlimited crop windows and multi-location saved gardens",
+              "displayName": "Frostwatch Pro",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "frostwatch.pro",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Frostwatch Pro Monthly",
+          "subscriptionGroupID": "1",
+          "type": "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}
